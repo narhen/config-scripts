@@ -1,0 +1,52 @@
+[user]
+    name = Henrik Nårstad
+    email = <name>@<host>.<tld>
+[pull]
+    ff = only
+[alias]
+    lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+    lgh = "lg -10"
+    lgn = "lg master.."
+    st = status
+    d = diff
+    ds = diff --staged
+    co = checkout
+    cm = commit -m
+    br = branch --sort=-committerdate
+    brh = "!git branch --color --sort=-committerdate | head"
+    ca = commit --amend
+    can = commit --amend --no-edit --reset-author
+    pushf = push --force-with-lease
+    cp = cherry-pick
+    hist = log --follow -p --stat
+    an = add -N
+    au = add -u
+    ai = add -i
+    rb = rebase
+    rbpr = "!git rebase -i HEAD~$[$(git lgn | wc -l) + 2]"
+    rbm = rebase master
+    rbc = rebase --continue
+[core]
+    #pager = diff-so-fancy | less --tabs=4 -RFX
+    pager = delta
+[color]
+    ui = true
+[color "diff-highlight"]
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
+[color "diff"]
+    meta = 11
+    frag = magenta bold
+    commit = yellow bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    line-numbers = true
+    #side-by-side = true
+[diff]
+    colorMoved = default
